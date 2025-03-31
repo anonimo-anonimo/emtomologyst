@@ -34,7 +34,7 @@ class ModelCountRecord implements ModelEntity {
   }
 
   @override
-  ModelEntity fromJson(Map<String, dynamic> json) {
+  ModelCountRecord fromJson(Map<String, dynamic> json) {
     return ModelCountRecord(
       insectType: json['insectType'].toString(),
       geolocation: json['geolocation'].toString(),
@@ -44,7 +44,7 @@ class ModelCountRecord implements ModelEntity {
   }
 
   @override
-  ModelEntity fromString(String jsonString) {
+  ModelCountRecord fromString(String jsonString) {
     final Map<String, dynamic> json =
         jsonDecode(jsonString) as Map<String, dynamic>;
     return fromJson(json);

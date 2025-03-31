@@ -16,7 +16,11 @@ class ModelEntomologist implements ModelEntity {
   final String geoLocate;
 
   @override
-  ModelEntity copyWith({String? name, String? urlPhoto, String? geoLocate}) {
+  ModelEntomologist copyWith({
+    String? name,
+    String? urlPhoto,
+    String? geoLocate,
+  }) {
     return ModelEntomologist(
       name: name ?? this.name,
       urlPhoto: urlPhoto ?? this.urlPhoto,
@@ -25,7 +29,7 @@ class ModelEntomologist implements ModelEntity {
   }
 
   @override
-  ModelEntity fromJson(Map<String, dynamic> json) {
+  ModelEntomologist fromJson(Map<String, dynamic> json) {
     return ModelEntomologist(
       name: json['name'].toString(),
       urlPhoto: json['urlPhoto'].toString(),
@@ -34,7 +38,7 @@ class ModelEntomologist implements ModelEntity {
   }
 
   @override
-  ModelEntity fromString(String jsonString) {
+  ModelEntomologist fromString(String jsonString) {
     final Map<String, dynamic> json =
         jsonDecode(jsonString) as Map<String, dynamic>;
     return fromJson(json);
