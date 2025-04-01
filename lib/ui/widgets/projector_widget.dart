@@ -38,8 +38,16 @@ class ProjectorWidget extends StatelessWidget {
           child: SizedBox(
             width: widthScale,
             height: heightScale,
-
-            child: AspectRatio(aspectRatio: aspectRatio, child: page),
+            child: AspectRatio(
+              aspectRatio: aspectRatio,
+              child: FittedBox(
+                child: SizedBox(
+                  width: designWidth,
+                  height: designHeight,
+                  child: page,
+                ),
+              ),
+            ),
           ),
         );
       },

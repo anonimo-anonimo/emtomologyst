@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/projector_widget.dart';
+import 'app_theme.dart';
+import 'pages/my_page.dart';
+import 'pages/splash_screen_page.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -8,26 +10,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: ProjectorWidget(
-          page: Center(
-            child: Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              color: Colors.green,
-              child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  final double screenWidth = constraints.maxWidth;
-                  final double screenHeight = constraints.maxHeight;
-                  return Text(
-                    'Hello World!\n${MediaQuery.of(context).size}\nContenedor:$screenWidth x $screenHeight',
-                  );
-                },
-              ),
-            ),
-          ),
-        ),
-      ),
+      theme: AppTheme.lisghtTheme, // demostramos manejo de temas en la app 😊
+      home: const MyPage(page: SplashScreenPage()),
     );
   }
 }

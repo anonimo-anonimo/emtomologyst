@@ -1,5 +1,5 @@
 name: emtomologyst
-description: "A new Flutter project."
+description: "Mi prueba de ingreso al trabajo soñado."
 publish_to: 'none'
 version: 0.1.0
 
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  text_responsive: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +18,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo.png
