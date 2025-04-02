@@ -1,4 +1,3 @@
-import 'package:emtomologyst/domain/models/geo_location.dart';
 import 'package:emtomologyst/viewmodels/geolocation_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,7 +6,7 @@ void main() {
     late GeoLocationViewModel viewModel;
 
     setUp(() {
-      viewModel = GeoLocationViewModel(const GeoLocation(lat: 0.0, lng: 0.0));
+      viewModel = GeoLocationViewModel();
     });
 
     test('debería actualizar latitud', () {
