@@ -3,6 +3,7 @@ import 'package:text_responsive/text_responsive.dart';
 
 import '../../app_state_manager.dart';
 import '../../domain/models/model_entomologist.dart';
+import '../widgets/name_input_field_widget.dart';
 import '../widgets/profile_photo_widget.dart';
 
 class SignInPage extends StatelessWidget {
@@ -20,17 +21,17 @@ class SignInPage extends StatelessWidget {
         const SizedBox(height: 219.0),
         ProfilePhotoWidget(modelEntomologist: modelEntomologist),
         const SizedBox(height: 31.0),
-        Container(
-          color: Colors.white,
+        const SizedBox(
           width: 252.0,
           height: 24.0,
-          child: const InlineTextWidget('Nombre:'),
+          child: InlineTextWidget('Nombre:'),
         ),
-        Container(
-          color: Colors.white,
-          width: 358.0,
+        SizedBox(
+          width: 328.0,
           height: 56.0,
-          child: const InlineTextWidget('Aqui ira el input 😊:'),
+          child: NameInputFieldWidget(
+            viewModel: appStateManager.entomologystViewModel,
+          ),
         ),
         const SizedBox(height: 142.0),
         Container(

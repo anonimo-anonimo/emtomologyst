@@ -1,6 +1,9 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../domain/entities/view_model.dart';
 import '../domain/models/geo_location.dart';
 import '../domain/models/model_entomologist.dart';
+import 'app_router_manager.dart';
 
 class EntomologystViewModel extends ViewModel {
   EntomologystViewModel([this._entomologist = defaultEntomologist]);
@@ -9,6 +12,7 @@ class EntomologystViewModel extends ViewModel {
     urlPhoto: 'assets/default_profile.png',
     geoLocate: '{"lat":0,"lng":0}',
   );
+  static const String entomologistKey = 'entomologistKey';
   ModelEntomologist _entomologist;
   ModelEntomologist get entomologist => _entomologist;
 
@@ -26,7 +30,15 @@ class EntomologystViewModel extends ViewModel {
 
   // Estos no nos los pidieron pero son necesarios para generar el CRUD del entomologo
   void updateName(String newName) {
-    _entomologist = _entomologist.copyWith(name: newName);
-    notifyListeners();
+    if (newName.isNotEmpty) {
+      _entomologist = _entomologist.copyWith(name: newName);
+      notifyListeners();
+    }
+  }
+
+  Future<void> saveEntomologistToPreferences() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool(AppRouterManager.isFirstTimeKey, false);
+    prefs.setString(entomologistKey, _entomologist.toString());
   }
 }
