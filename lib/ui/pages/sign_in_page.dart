@@ -3,6 +3,7 @@ import 'package:text_responsive/text_responsive.dart';
 
 import '../../app_state_manager.dart';
 import '../../domain/models/model_entomologist.dart';
+import '../widgets/profile_photo_widget.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -17,11 +18,7 @@ class SignInPage extends StatelessWidget {
     return Column(
       children: <Widget>[
         const SizedBox(height: 219.0),
-        Image(
-          image: NetworkImage(modelEntomologist.urlPhoto),
-          width: 120.0,
-          height: 120.0,
-        ),
+        ProfilePhotoWidget(modelEntomologist: modelEntomologist),
         const SizedBox(height: 31.0),
         Container(
           color: Colors.white,
