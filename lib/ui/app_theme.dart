@@ -5,9 +5,7 @@ class AppTheme {
 
   static ThemeData get lisghtTheme {
     return ThemeData(
-      colorScheme: const ColorScheme.light(
-        secondaryContainer: secondaryContainer,
-      ),
+      colorScheme: ColorScheme.fromSeed(seedColor: secondaryContainer),
     );
   }
 }

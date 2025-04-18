@@ -5,6 +5,7 @@ import '../../app_state_manager.dart';
 import '../../domain/models/model_entomologist.dart';
 import '../widgets/name_input_field_widget.dart';
 import '../widgets/profile_photo_widget.dart';
+import '../widgets/share_user_location_widget.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -38,7 +39,9 @@ class SignInPage extends StatelessWidget {
           color: Colors.white,
           width: 360.0,
           height: 88.0,
-          child: const ParagraphTextWidget('Aqui va el texto de la cajita 😊:'),
+          child: ShareUserLocationWidget(
+            viewModel: appStateManager.geoLocationViewModel,
+          ),
         ),
         const SizedBox(height: 89.0),
         Container(

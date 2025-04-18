@@ -40,4 +40,9 @@ class GeoLocationViewModel extends ViewModel {
     _hasLocationPermission = await geolocationService.locationPermission();
     notifyListeners();
   }
+
+  void setUserLocationPermission(bool value) {
+    _hasLocationPermission = value;
+    notifyListeners();
+  }
 }
