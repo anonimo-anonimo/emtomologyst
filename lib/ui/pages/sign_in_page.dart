@@ -35,20 +35,28 @@ class SignInPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 142.0),
-        Container(
-          color: Colors.white,
-          width: 360.0,
-          height: 88.0,
-          child: ShareUserLocationWidget(
-            viewModel: appStateManager.geoLocationViewModel,
-          ),
+
+        ShareUserLocationWidget(
+          viewModel: appStateManager.geoLocationViewModel,
         ),
+
         const SizedBox(height: 89.0),
-        Container(
-          color: Colors.white,
+        SizedBox(
           width: 320.0,
           height: 40.0,
-          child: const ParagraphTextWidget('Aqui van los botones 😊:'),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              OutlinedButton(
+                onPressed: () {},
+                child: const InlineTextWidget('Omitir'),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: const InlineTextWidget('Guardar'),
+              ),
+            ],
+          ),
         ),
       ],
     );
