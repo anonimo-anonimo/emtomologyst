@@ -71,4 +71,10 @@ class ModelCountRecord implements ModelEntity {
 
   @override
   int get hashCode => Object.hash(insectType, geolocation, comment, count);
+  String get label{
+    if(count >= 0 && count <10 ){
+      return '0$count';
+    }
+    return count.toString();
+  }
 }

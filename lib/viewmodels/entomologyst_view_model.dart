@@ -41,4 +41,10 @@ class EntomologystViewModel extends ViewModel {
     prefs.setBool(AppRouterManager.isFirstTimeKey, false);
     prefs.setString(entomologistKey, _entomologist.toString());
   }
+
+  Future<void> resetEntomologist() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(AppRouterManager.isFirstTimeKey);
+    await prefs.remove(entomologistKey);
+  }
 }

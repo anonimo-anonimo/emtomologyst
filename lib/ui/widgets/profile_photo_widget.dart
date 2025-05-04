@@ -22,6 +22,9 @@ class ProfilePhotoWidget extends StatelessWidget {
 
       child: Image(
         fit: BoxFit.fitWidth,
+          errorBuilder:
+              (BuildContext context, Object error, StackTrace? stackTrace) =>
+          const Center(child: CircularProgressIndicator()),
         image:
             modelEntomologist.urlPhoto.contains('assets')
                 ? AssetImage(modelEntomologist.urlPhoto)

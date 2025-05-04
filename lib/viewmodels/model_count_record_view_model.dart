@@ -13,12 +13,23 @@ class ModelCountRecordViewModel extends ViewModel {
   }
 
   void updateComment(String comment) {
-    _record = _record.copyWith(comment: comment);
-    notifyListeners();
+    final String updatedComment = comment.trim();
+    if (updatedComment != _record.comment) {
+      _record = _record.copyWith(comment: comment);
+      notifyListeners();
+    }
   }
 
   void incrementCount() {
     _record = _record.copyWith(count: _record.count + 1);
     notifyListeners();
+  }
+
+  void decrementCount() {
+    if (_record.count > 0) {
+      _record = _record.copyWith(count: _record.count - 1);
+
+      notifyListeners();
+    }
   }
 }

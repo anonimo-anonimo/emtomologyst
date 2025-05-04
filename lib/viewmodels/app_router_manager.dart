@@ -5,10 +5,25 @@ import '../domain/entities/view_model.dart';
 
 class AppRouterManager extends ViewModel {
   bool _isInitializated = false;
+  bool _isLoading = false;
   static const String isFirstTimeKey = 'isFirstTime';
   AppRoute _route = AppRoute.splash;
   AppRoute get route {
     return _route;
+  }
+
+  bool get isLoading => _isInitializated;
+  void setIsloading(bool value) {
+    _isLoading = value;
+    if (_isLoading) {
+      _route = AppRoute.isLoading;
+    }
+    notifyListeners();
+  }
+
+  Future<void> reInitializate() async {
+    _isInitializated = false;
+    initialize();
   }
 
   Future<void> initialize() async {
@@ -26,13 +41,18 @@ class AppRouterManager extends ViewModel {
     }
   }
 
+  void checkEntomologyst() {
+    _isInitializated = false;
+    initialize();
+  }
+
   void goToNewRoute(AppRoute newRoute) {
     _route = newRoute;
     notifyListeners();
   }
 
   bool back() {
-    if (_route != AppRoute.splash && _route != AppRoute.home) {
+    if (_route != AppRoute.splash && _route != AppRoute.home && isLoading) {
       _route = AppRoute.home;
       notifyListeners();
       return true;

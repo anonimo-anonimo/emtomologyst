@@ -48,11 +48,11 @@ class SignInPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               OutlinedButton(
-                onPressed: () {},
+                onPressed: appStateManager.saveEntomologist,
                 child: const InlineTextWidget('Omitir'),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: appStateManager.saveEntomologist,
                 child: const InlineTextWidget('Guardar'),
               ),
             ],
